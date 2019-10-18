@@ -4,3 +4,7 @@
 # Build folders
 bin/
 obj/
+
+# Binary files
+glfw.dll
+MikasaIcon.png

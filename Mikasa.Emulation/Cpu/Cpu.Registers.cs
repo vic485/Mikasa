@@ -8,7 +8,7 @@
         public uint A;
 
         /// <summary>
-        /// Index
+        /// Index register
         /// </summary>
         public uint X, Y;
 

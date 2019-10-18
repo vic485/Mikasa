@@ -7,3 +7,6 @@ Nothing is completely implemented so far
 
 ## What is missing
 Everything :)
+
+---
+Information used for development is taken from the [SFC Development Wiki](https://wiki.superfamicom.org/).
