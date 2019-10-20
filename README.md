@@ -9,4 +9,4 @@ Nothing is completely implemented so far
 Everything :)
 
 ---
-Information used for development is taken from the [SFC Development Wiki](https://wiki.superfamicom.org/).
+Information used for development is taken from the [SFC Development Wiki](https://wiki.superfamicom.org/) and [Super NES Programming](https://en.wikibooks.org/wiki/Super_NES_Programming).

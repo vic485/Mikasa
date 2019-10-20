@@ -1,4 +1,11 @@
-﻿using System;
+﻿//=============================================================================
+// InstructionDefinitionAttribute.cs
+// Attribute placed on methods which are to be processor OpCode calls
+//
+// Created by Victor on 2019/10/17
+//=============================================================================
+
+using System;
 
 namespace Mikasa.Emulation.Cpu
 {
