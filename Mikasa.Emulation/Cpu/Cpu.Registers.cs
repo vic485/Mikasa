@@ -18,7 +18,7 @@ namespace Mikasa.Emulation.Cpu
         public uint Accumulator
         {
             get => _a;
-            set => _a = value; // TODO: This is incorrect
+            set => _a = SET_NZ_FLAGS(value & 0xFFFF);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Mikasa.Emulation.Cpu
         public uint XIndex
         {
             get => _x;
-            set => _x = value;
+            set => _x = SET_NZ_FLAGS(value & 0xFFFF);
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Mikasa.Emulation.Cpu
         public uint YIndex
         {
             get => _y;
-            set => _y = value;
+            set => _y = SET_NZ_FLAGS(value & 0xFFFF);
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Mikasa.Emulation.Cpu
         public uint StackPointer
         {
             get => _s;
-            set => _s = value;
+            set => _s = value & 0xFFFF;
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Mikasa.Emulation.Cpu
         public uint DataBank
         {
             get => _db;
-            set => _db = value;
+            set => _db = value & 0xFFFF;
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Mikasa.Emulation.Cpu
         public uint DirectPage
         {
             get => _dp;
-            set => _dp = value;
+            set => _dp = value & 0xFFFF;
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Mikasa.Emulation.Cpu
         public uint ProgramBank
         {
             get => _pb;
-            set => _pb = value;
+            set => _pb = value & 0xFFFF;
         }
 
         /// <summary>
@@ -87,6 +87,15 @@ namespace Mikasa.Emulation.Cpu
         {
             get => _pc;
             set => _pc = value;
+        }
+
+        private uint SET_NZ_FLAGS(uint value)
+        {
+            // TODO: We need to check if the register we are adjusting is 8 or 16 bit
+            P = (value & 0xFFFF) == 0 ? P | CpuFlags.Zero : P & ~CpuFlags.Zero;
+            P = (value & 0x8000) > 0 ? P | CpuFlags.Negative : P & ~CpuFlags.Negative;
+            //return value;
+            return 0;
         }
     }
 }
